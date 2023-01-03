@@ -1,17 +1,13 @@
-// type array
-const sequence:number[] = [45, 4, 9, 16, 25]
+//Any type
 
-sequence.forEach((number) => {
-    console.log(number)
-})
+//Avoid any type. This is default javascript behavior
 
-let user:{} ={
-    name: "John",
-    age: 30,
+let firstName: any = "Mark";
 
-};
+firstName = 123;
 
-//Typescript wont compile
-// user.forEach((prop) => {
-//     console.log(prop)
-// })
+firstName = [5,4,8, 4]
+
+function multiplyByTwo(number){
+    return number * 2
+}

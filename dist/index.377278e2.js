@@ -1,20 +1,15 @@
-// type array
-const sequence = [
-    45,
+//Any type
+//Avoid any type. This is default javascript behavior
+let firstName = "Mark";
+firstName = 123;
+firstName = [
+    5,
     4,
-    9,
-    16,
-    25
+    8,
+    4
 ];
-sequence.forEach((number)=>{
-    console.log(number);
-});
-let user = {
-    name: "John",
-    age: 30
-}; //Typescript wont compile
- // user.forEach((prop) => {
- //     console.log(prop)
- // })
+function multiplyByTwo(number) {
+    return number * 2;
+}
 
 //# sourceMappingURL=index.377278e2.js.map
