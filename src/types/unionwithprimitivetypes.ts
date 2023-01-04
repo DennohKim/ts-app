@@ -11,6 +11,6 @@ function addNumberOrString(a: stringOrNumber, b: stringOrNumber){
 }
 
 console.log(addNumberOrString(5, 10));
-console.log(addNumberOrString("mark"));
+console.log(addNumberOrString("mark", 10));
 
 
