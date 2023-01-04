@@ -16,5 +16,3 @@ let person = {
       article: "solidity",
   
   }
-  
-  
