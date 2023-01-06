@@ -1,4 +1,14 @@
-function filter (array: any[], predicate: Function){
+type Filter = {
+    (array: number[], predicate: (item: number) => boolean): number[];
+    (array: string[], predicate: (item: string) => boolean): string[];
+    (array: object[], predicate: (item: object) => boolean): object[];
+};
+
+
+
+function filter (array: 
+    
+    any[], predicate: Function){
     //predicate is a function that returns either true or false
 
     let result = [];
