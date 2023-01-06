@@ -1,4 +1,10 @@
-function filter(array, predicate) {
+// type Filter = {
+//     (array: number[], predicate: (item: number) => boolean): number[];
+//     (array: string[], predicate: (item: string) => boolean): string[];
+//     (array: object[], predicate: (item: object) => boolean): object[];
+// };
+//Using generics instead of function overload
+const filter = (array, predicate)=>{
     //predicate is a function that returns either true or false
     let result = [];
     for(let i = 0; i < array.length; i++){
@@ -7,7 +13,7 @@ function filter(array, predicate) {
         if (predicate(item)) result.push(item);
     }
     return result;
-}
+};
 let numbers = [
     1,
     3,
