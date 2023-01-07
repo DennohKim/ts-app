@@ -1,44 +1,30 @@
-// type Filter = {
-//     (array: number[], predicate: (item: number) => boolean): number[];
-//     (array: string[], predicate: (item: string) => boolean): string[];
-//     (array: object[], predicate: (item: object) => boolean): object[];
-// };
+// type Map = {
 
-//Using generics instead of function overload
+// }
 
-type Filter = {
-  //T can be any type. Any kind of word can be used instead of T
-  <T>(array: T[], predicate: (item: T) => boolean): T[];
-};
+//declare map function
+const map = <T, U>(array: T[], func: (item: T) => U) => {
+  //Check if array is empty
+  if(array.length === 0) {
+    return array;
+  }
 
-const filter: Filter = (array: T[], predicate) => {
-  //predicate is a function that returns either true or false
-
+  //create new array to collect new values
   let result = [];
 
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
+  //Loop through each item and call the func
 
-    //if true item will be added to array
-    if (predicate(item)) {
-      result.push(item);
-    }
+  for(let i=0; i < array.length; i++) {
+    result[i] = func(array[i]);
   }
+
+  //return new array
   return result;
-};
-
-let numbers = [1, 3, 4, 5, 6, 3, 8, 9, 10];
-
-function greaterThanSeven(item: number) {
-  return item > 7;
 }
 
-console.log(filter(numbers, greaterThanSeven));
+let newNumbers = [1, 3, 4, 5, 6, 3, 8, 9, 10];
 
-let animals = ["cats", "dog", "pig", "fish", "rabbit"];
+//@ts-ignore  
+const converted = map(newNumbers, (num) => num.toString()); 
 
-function filterCats(item: string) {
-  return item === "cats";
-}
-
-console.log(filter(animals, filterCats));
+console.log(converted);

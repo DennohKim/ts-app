@@ -1,20 +1,17 @@
-// type Filter = {
-//     (array: number[], predicate: (item: number) => boolean): number[];
-//     (array: string[], predicate: (item: string) => boolean): string[];
-//     (array: object[], predicate: (item: object) => boolean): object[];
-// };
-//Using generics instead of function overload
-const filter = (array, predicate)=>{
-    //predicate is a function that returns either true or false
+// type Map = {
+// }
+//declare map function
+const map = (array, func)=>{
+    //Check if array is empty
+    if (array.length === 0) return array;
+    //create new array to collect new values
     let result = [];
-    for(let i = 0; i < array.length; i++){
-        let item = array[i];
-        //if true item will be added to array
-        if (predicate(item)) result.push(item);
-    }
+    //Loop through each item and call the func
+    for(let i = 0; i < array.length; i++)result[i] = func(array[i]);
+    //return new array
     return result;
 };
-let numbers = [
+let newNumbers = [
     1,
     3,
     4,
@@ -25,20 +22,8 @@ let numbers = [
     9,
     10
 ];
-function greaterThanSeven(item) {
-    return item > 7;
-}
-console.log(filter(numbers, greaterThanSeven));
-let animals = [
-    "cats",
-    "dog",
-    "pig",
-    "fish",
-    "rabbit"
-];
-function filterCats(item) {
-    return item === "cats";
-}
-console.log(filter(animals, filterCats));
+//@ts-ignore  
+const converted = map(newNumbers, (num)=>num.toString());
+console.log(converted);
 
 //# sourceMappingURL=index.377278e2.js.map
